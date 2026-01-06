@@ -1,637 +1,248 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: イーサリアム開発の最前線
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
+  ## イーサリアム開発の最前線
+  技術課題・研究動向・将来展望
+  
+  Nyx Foundation登壇資料
+  gohan
 class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# duration of the presentation
-duration: 35min
 ---
 
-# Welcome to Slidev
+# イーサリアム開発の最前線
+## 技術課題・研究動向・将来展望
 
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
+<div class="mt-16">
+  <p class="text-2xl">gohan</p>
 </div>
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
+<div class="absolute bottom-10 right-10">
+  <img src="/images/nyx_logo.svg" alt="Nyx Foundation" width="120" />
 </div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
 ---
 layout: two-cols
 layoutClass: gap-16
 ---
 
-# Table of contents
+# 自己紹介
 
-You can use the `Toc` component to generate a table of contents for your slides:
+::left::
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+<div class="flex flex-col items-center">
+  <div class="w-64 h-64 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+    <span class="text-gray-400">Profile Image</span>
+  </div>
+  <h3 class="text-xl font-bold">gohan</h3>
+  <p class="text-sm mt-2">Nyx Foundation所属</p>
+  <p class="text-sm">ZK Tokyo運営</p>
+  <p class="text-sm">早稲田大学暗号学修士</p>
+  <p class="text-sm">イーサリアム財団奨学生</p>
+</div>
 
 ::right::
 
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+<div class="mt-4">
+  <h4 class="text-lg font-bold mb-4">これまでやったこと</h4>
+  
+  <ul class="text-sm space-y-2 mb-6">
+    <li>✓ イーサリアムへ複数バグ報告</li>
+    <li>✓ イーサリアムFusaka監査コンテストで15件のバグ報告</li>
+    <li>✓ イーサリアムクライアントGeth, Enigonの実装改善に貢献</li>
+    <li>✓ zkVMベンチマークの研究（国際学会採択）</li>
+    <li>✓ MPCで数理最適化を解くシステムの研究（EFと共同）</li>
+  </ul>
+
+  <div class="flex gap-4 justify-center mt-8">
+    <div class="w-24 h-16 bg-orange-100 rounded flex items-center justify-center">
+      <span class="text-xs text-center">AWS</span>
+    </div>
+    <div class="w-24 h-16 bg-purple-100 rounded flex items-center justify-center">
+      <span class="text-xs text-center">Ethereum</span>
+    </div>
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
+<div class="absolute bottom-10 right-10">
+  <img src="/images/nyx_logo.svg" alt="Nyx Foundation" width="100" />
 </div>
 
 ---
 
-# $\LaTeX$
+# 本勉強会の目的
 
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
+## 3つの地図を完全理解する！！！
 
-<div h-3 />
+<div class="mt-12 grid grid-cols-3 gap-6">
+  <div class="bg-orange-100 rounded-lg p-6 border-2 border-orange-300 flex flex-col items-center justify-center h-48">
+    <div class="text-4xl mb-4">🧭</div>
+    <h3 class="font-bold text-center">ロードマップの方向性</h3>
+    <p class="text-xs mt-2 text-center">シンプル・柔軟性・分散性を保ったまま速く</p>
+  </div>
+  
+  <div class="bg-orange-200 rounded-lg p-6 border-2 border-orange-400 flex flex-col items-center justify-center h-48">
+    <div class="text-4xl mb-4">📅</div>
+    <h3 class="font-bold text-center">直近アップグレード</h3>
+    <p class="text-xs mt-2 text-center">Fusaka/Glamsterdam</p>
+  </div>
+  
+  <div class="bg-orange-300 rounded-lg p-6 border-2 border-orange-500 flex flex-col items-center justify-center h-48">
+    <div class="text-4xl mb-4">🔗</div>
+    <h3 class="font-bold text-center">エコシステム</h3>
+    <p class="text-xs mt-2 text-center">zkHyperliquid Bitcoin DeFi Privacy etc.</p>
+  </div>
+</div>
 
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
+<div class="absolute bottom-10 right-10">
+  <img src="/images/nyx_logo.svg" alt="Nyx Foundation" width="100" />
+</div>
 
 ---
 
-# Diagrams
+# イーサリアムについておさらい
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+イーサリアムは信頼機関なしで動くプログラムを実行できる「分散型アプリ基盤」
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+<div class="grid grid-cols-2 gap-8 mt-6">
+  <div>
+    <div class="mb-6">
+      <h4 class="font-bold mb-3 text-sm">誰が正しいか多数決で決める</h4>
+      <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-center gap-3">
+        <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
+        <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
+        <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
+        <span class="text-lg">→</span>
+        <div class="w-12 h-8 bg-blue-300 rounded flex items-center justify-center text-xs font-bold">多数決</div>
+      </div>
+    </div>
 
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+    <div class="mb-6">
+      <h4 class="font-bold mb-3 text-sm">いつ会計が締められるかが明確</h4>
+      <div class="bg-gray-100 p-4 rounded-lg text-xs space-y-2">
+        <div class="flex justify-between font-bold">
+          <span>ブロック提案</span>
+          <span>検証</span>
+          <span>正当化</span>
+          <span>確定</span>
+        </div>
+        <div class="flex justify-between text-gray-600">
+          <span></span>
+          <span>12s</span>
+          <span></span>
+          <span>6min</span>
+        </div>
+      </div>
+    </div>
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
+    <div>
+      <h4 class="font-bold mb-3 text-sm">L2でスケール、L1で信頼を担保</h4>
+      <div class="bg-gray-100 p-4 rounded-lg text-xs flex items-center justify-center gap-2">
+        <span class="bg-pink-200 px-2 py-1 rounded">複数ノード</span>
+        <span>→</span>
+        <span class="bg-blue-200 px-2 py-1 rounded">L2</span>
+        <span>→</span>
+        <span class="bg-orange-200 px-2 py-1 rounded">L1</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h4 class="font-bold mb-3 text-sm">ブロックチェーン構造</h4>
+    <div class="bg-gray-100 p-6 rounded-lg">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+        <span class="text-lg">→</span>
+        <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+        <span class="text-lg">→</span>
+        <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+        <span class="text-lg">→</span>
+        <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="absolute bottom-10 right-10">
+  <img src="/images/nyx_logo.svg" alt="Nyx Foundation" width="100" />
+</div>
+
+---
+
+# イーサリアムロードマップ
+
+シンプルに・柔軟に・分散したまま速く
 
 ```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
+graph LR
+    A["Peer-DAS<br/>ePBS<br/>BALs"] --> B["DAS"]
+    B --> C["Based<br/>Rollup"]
+    C --> D["Kohaku<br/>Wallet"]
+    D --> E["Account<br/>Abstraction"]
+    
+    B --> F["Danksharding"]
+    C --> G["Stateless"]
+    D --> H["Native<br/>Rollup"]
+    E --> I["RISC-V"]
+    E --> J["3SF APS"]
+    
+    style A fill:#C8E6C9
+    style B fill:#C8E6C9
+    style F fill:#C8E6C9
+    
+    style C fill:#FFE0B2
+    style G fill:#FFE0B2
+    style H fill:#FFE0B2
+    
+    style D fill:#FFE0B2
+    
+    style E fill:#F8BBD0
+    style I fill:#F8BBD0
+    style J fill:#F8BBD0
 ```
 
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
+<div class="absolute bottom-10 right-10">
+  <img src="/images/nyx_logo.svg" alt="Nyx Foundation" width="100" />
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
 ---
 
-# Draggable Elements
+# まとめ
 
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="430,444,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
+<div class="grid grid-cols-3 gap-6 mt-12">
+  <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+    <h3 class="font-bold mb-2">🧭 ロードマップ</h3>
+    <p class="text-sm">シンプル・柔軟性・分散性を保ったまま速く</p>
   </div>
-</v-drag>
+  
+  <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+    <h3 class="font-bold mb-2">📅 アップグレード</h3>
+    <p class="text-sm">直近のFusaka/Glamsterdamに注目</p>
+  </div>
+  
+  <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+    <h3 class="font-bold mb-2">🔗 エコシステム</h3>
+    <p class="text-sm">多様なアプリケーションの発展</p>
+  </div>
+</div>
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+<div class="mt-16 text-center">
+  <h2 class="text-3xl font-bold">ご質問ありがとうございました</h2>
+</div>
 
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+<div class="absolute bottom-10 right-10">
+  <img src="/images/nyx_logo.svg" alt="Nyx Foundation" width="100" />
+</div>
 
 ---
-layout: center
-class: text-center
+layout: end
 ---
 
-# Learn More
+# Thank you!
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
-
-<PoweredBySlidev mt-10 />
+Nyx Foundation
