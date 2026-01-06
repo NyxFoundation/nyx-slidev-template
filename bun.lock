@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "nyx-slidev-templete",
+      "name": "nyx-slidev-template",
       "dependencies": {
         "@slidev/cli": "^52.11.1",
         "@slidev/theme-default": "latest",
